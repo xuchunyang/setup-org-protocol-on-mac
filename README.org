@@ -7,6 +7,7 @@ neil-smithline-elisp/EmacsClient.app]].
 
 - Launch the Script Editor application and create a new document
 - Copy-and-paste the following code into the new document
+- Change "/usr/local/bin/emacsclient" to path to =emacsclient= on your system
 - Save it in /Application/ (not the default /Script/) File Format as
   =org-protocol.app=
 
@@ -16,7 +17,7 @@ neil-smithline-elisp/EmacsClient.app]].
   end open location
 #+END_SRC
 
-** Setp 2. Configure the application
+** Step 2. Configure the application
 
 - Navigate to the application (i.e., =org-protocol.app=) in the Finder, then
   right-click on it and select =Show Package Contents=. Now go into the
@@ -36,4 +37,28 @@ neil-smithline-elisp/EmacsClient.app]].
       </array>
     </dict>
   </array>
+#+END_SRC
+
+** Step 3. Test your results
+
+Click the following link and see if emacs reacts
+
+#+BEGIN_HTML
+<ul>
+  <li><p><a href="org-protocol://store-link://https%3A%2F%2Fwww.wikipedia.org%2F/Wikipedia">Org store link: Wikipedia homepage</a></p></li>
+</ul>
+#+END_HTML
+
+* Notes
+
+** Emacs doesn't activate?
+
+I use graphical Emacs and start Emacs server from there, however after clicking
+some org-protocol link, Emacs doesn't activate. I don't know the cause. If you
+encounter the same issue AND don't like it, you can try this instead
+
+#+BEGIN_SRC applescript
+  on open location this_URL
+     do shell script "/usr/local/bin/emacsclient \"" & this_URL & "\" && open -a Emacs"
+  end open location
 #+END_SRC
