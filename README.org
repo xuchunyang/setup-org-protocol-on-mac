@@ -41,13 +41,7 @@ neil-smithline-elisp/EmacsClient.app]].
 
 ** Step 3. Test your results
 
-Click the following link and see if emacs reacts
-
-#+BEGIN_HTML
-<ul>
-  <li><p><a href="org-protocol://store-link://https%3A%2F%2Fwww.wikipedia.org%2F/Wikipedia">Org store link: Wikipedia homepage</a></p></li>
-</ul>
-#+END_HTML
+See http://orgmode.org/worg/org-contrib/org-protocol.html#orgheadline8
 
 * Notes
 
