@@ -1,0 +1,39 @@
+* Setting Up org-protocol on Mac
+
+[[http://orgmode.org/worg/org-contrib/org-protocol.html#orgheadline6][org-protocol.el – Mac OS X setup]] doesn't work anymore according to [[https://github.com/neil-smithline-elisp/EmacsClient.app/issues/3][Issue #3 ·
+neil-smithline-elisp/EmacsClient.app]].
+
+** Step 1. Create an application
+
+- Launch the Script Editor application and create a new document
+- Copy-and-paste the following code into the new document
+- Save it in /Application/ (not the default /Script/) File Format as
+  =org-protocol.app=
+
+#+BEGIN_SRC applescript
+  on open location this_URL
+      do shell script "/usr/local/bin/emacsclient \"" & this_URL & "\""
+  end open location
+#+END_SRC
+
+** Setp 2. Configure the application
+
+- Navigate to the application (i.e., =org-protocol.app=) in the Finder, then
+  right-click on it and select =Show Package Contents=. Now go into the
+  =Contents= folder and open =Info.plist=
+- Add the following code to the file, making sure to keep all existing
+  key/string pairs intact:
+
+#+BEGIN_SRC xml
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLName</key>
+      <string>org-protocol handler</string>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>org-protocol</string>
+      </array>
+    </dict>
+  </array>
+#+END_SRC
