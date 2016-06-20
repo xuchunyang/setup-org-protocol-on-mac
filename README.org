@@ -56,3 +56,8 @@ encounter the same issue AND don't like it, you can try this instead
      do shell script "/usr/local/bin/emacsclient \"" & this_URL & "\" && open -a Emacs"
   end open location
 #+END_SRC
+
+** User Script
+
+On web browser, besides bookmarklets, you can also use User Script, for example,
+[[./org-protocol.user.js]] binds two keys to Org: store-link and Org: capture.
