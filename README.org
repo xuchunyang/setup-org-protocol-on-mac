@@ -12,9 +12,10 @@ neil-smithline-elisp/EmacsClient.app]].
   =org-protocol.app=
 
 #+BEGIN_SRC applescript
-  on open location this_URL
-      do shell script "/usr/local/bin/emacsclient \"" & this_URL & "\""
-  end open location
+on open location this_URL
+	do shell script "/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_14/emacsclient \"" & this_URL & "\""
+	tell application "Emacs" to activate
+end open location
 #+END_SRC
 
 ** Step 2. Configure the application
