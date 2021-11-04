@@ -13,10 +13,15 @@ neil-smithline-elisp/EmacsClient.app]].
 
 #+BEGIN_SRC applescript
 on open location this_URL
-	do shell script "/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_14/emacsclient \"" & this_URL & "\""
 	tell application "Emacs" to activate
+	do shell script "/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_14/emacsclient \"" & this_URL & "\""
 end open location
 #+END_SRC
+
+Note that the script tells Emacs to activate *before* starting =emacsclient=. This
+is done in order to work around a bug in graphical Emacs that causes =emacsclient=
+to block instead of returning immediately, even when =emacsclient= is launched
+with the =--no-wait= option.
 
 ** Step 2. Configure the application
 
@@ -45,18 +50,6 @@ end open location
 See http://orgmode.org/worg/org-contrib/org-protocol.html#orgheadline8
 
 * Notes
-
-** Emacs doesn't activate?
-
-I use graphical Emacs and start Emacs server from there, however after clicking
-some org-protocol link, Emacs doesn't activate. I don't know the cause. If you
-encounter the same issue AND don't like it, you can try this instead
-
-#+BEGIN_SRC applescript
-  on open location this_URL
-     do shell script "/usr/local/bin/emacsclient \"" & this_URL & "\" && open -a Emacs"
-  end open location
-#+END_SRC
 
 ** User Script
 
