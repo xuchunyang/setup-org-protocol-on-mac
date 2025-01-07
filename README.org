@@ -40,7 +40,11 @@ end open location
   </array>
 #+END_SRC
 
-** Step 3. Test your results
+** Step 3. Install the protocol
+
+To register the protocol, just click on the =org-protocol.app=.
+
+** Step 4. Test your results
 
 See http://orgmode.org/worg/org-contrib/org-protocol.html#orgheadline8
 
