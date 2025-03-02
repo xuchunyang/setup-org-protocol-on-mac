@@ -7,13 +7,14 @@ neil-smithline-elisp/EmacsClient.app]].
 
 - Launch the Script Editor application and create a new document
 - Copy-and-paste the following code into the new document
-- Change "/usr/local/bin/emacsclient" to path to =emacsclient= on your system
+- Run =where emacsclient= in cli to get the path to =emacsclient= on your system
+- Change "/path/to/your/emacsclient" to the result of =where emacsclient= 
 - Save it in /Application/ (not the default /Script/) File Format as
   =org-protocol.app=
 
 #+BEGIN_SRC applescript
 on open location this_URL
-	do shell script "/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_14/emacsclient \"" & this_URL & "\""
+	do shell script "/path/to/your/emacsclient \"" & this_URL & "\""
 	tell application "Emacs" to activate
 end open location
 #+END_SRC
